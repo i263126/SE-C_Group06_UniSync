@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - UniSync</title>
+  <!-- Link to our shared stylesheet (one folder up from pages/) -->
+  <link rel="stylesheet" href="../css/3126style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar (Header) -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- Left: Logo SVG + UniSync Brand Name -->
+      <a href="../index.html" class="brand-link">
+        <!-- Simple inline SVG graduation hat logo -->
+        <svg class="brand-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#00665C"/>
+          <!-- Graduation cap top (mortarboard) -->
+          <path d="M16 7L5 13L16 19L27 13L16 7Z" fill="#FFFFFF"/>
+          <!-- Cap base -->
+          <path d="M10 16.5V21.5C10 23 12.7 24.5 16 24.5C19.3 24.5 22 23 22 21.5V16.5L16 19.8L10 16.5Z" fill="#FFFFFF"/>
+          <!-- Tassel on the right side -->
+          <path d="M24.5 14.5V20.5" stroke="#E2F3EF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24.5" cy="21.5" r="1.5" fill="#E2F3EF"/>
+        </svg>
+        <span class="brand-name">UniSync</span>
+      </a>
+
+      <!-- Hamburger button shown only on small mobile screens -->
+      <button
+        type="button"
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Right: Navigation Links in required order -->
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="societies.html" class="nav-link">Societies</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="register.html" class="nav-link active" aria-current="page">Register</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Main Content: Split into two halves (Illustration + Registration Form) -->
+  <main class="main-content">
+    <section class="container register-layout" aria-labelledby="register-heading">
+
+      <!-- Left Half: Inline SVG illustration of 3 students standing together -->
+      <div class="illustration-box">
+        <svg
+          class="students-svg"
+          viewBox="0 0 420 340"
+          role="img"
+          aria-label="Three university students standing together on campus holding books and a backpack"
+          xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Soft background circle and ground line -->
+          <circle cx="210" cy="170" r="145" fill="#E2F3EF"/>
+          <rect x="45" y="282" width="330" height="8" rx="4" fill="#172B4D"/>
+
+          <!-- Small decorative campus shapes -->
+          <rect x="65" y="75" width="38" height="38" rx="8" fill="#FFFFFF" stroke="#00665C" stroke-width="2"/>
+          <path d="M76 94H92M84 86V102" stroke="#00665C" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="345" cy="90" r="16" fill="#FFFFFF" stroke="#1464C1" stroke-width="2"/>
+          <path d="M339 90L343 94L352 85" stroke="#1464C1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Student 1 (Left) -->
+          <g>
+            <!-- Legs -->
+            <rect x="86" y="218" width="14" height="64" rx="6" fill="#172B4D"/>
+            <rect x="106" y="218" width="14" height="64" rx="6" fill="#172B4D"/>
+            <!-- Torso (Action teal shirt) -->
+            <rect x="78" y="150" width="50" height="72" rx="14" fill="#00665C"/>
+            <!-- Collar detail -->
+            <path d="M95 150L103 160L111 150" fill="#FFFFFF"/>
+            <!-- Left arm + hand holding notebook -->
+            <rect x="63" y="156" width="15" height="46" rx="7.5" fill="#00665C"/>
+            <circle cx="70.5" cy="204" r="5.5" fill="#FFFFFF" stroke="#172B4D" stroke-width="2"/>
+            <!-- Notebook -->
+            <rect x="55" y="184" width="24" height="30" rx="4" fill="#FFFFFF" stroke="#172B4D" stroke-width="2"/>
+            <line x1="61" y1="193" x2="73" y2="193" stroke="#1464C1" stroke-width="2"/>
+            <line x1="61" y1="200" x2="73" y2="200" stroke="#40536A" stroke-width="2"/>
+            <!-- Right arm + hand -->
+            <rect x="128" y="156" width="15" height="46" rx="7.5" fill="#00665C"/>
+            <circle cx="135.5" cy="204" r="5.5" fill="#FFFFFF" stroke="#172B4D" stroke-width="2"/>
+            <!-- Head and hair -->
+            <circle cx="103" cy="122" r="22" fill="#FFFFFF" stroke="#172B4D" stroke-width="2.5"/>
+            <path d="M81 120C81 104 92 96 103 96C114 96 125 104 125 120C119 112 110 110 103 110C96 110 87 112 81 120Z" fill="#172B4D"/>
+            <!-- Friendly face -->
+            <circle cx="96" cy="123" r="2.2" fill="#172B4D"/>
+            <circle cx="110" cy="123" r="2.2" fill="#172B4D"/>
+            <path d="M97 131C100 135 106 135 109 131" stroke="#172B4D" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </g>
+
+          <!-- Student 2 (Middle - slightly taller) -->
+          <g>
+            <!-- Legs -->
+            <rect x="192" y="212" width="15" height="70" rx="6" fill="#40536A"/>
+            <rect x="213" y="212" width="15" height="70" rx="6" fill="#40536A"/>
+            <!-- Torso (Navy sweater) -->
+            <rect x="182" y="138" width="56" height="78" rx="16" fill="#172B4D"/>
+            <!-- Sweater stripe & badge -->
+            <rect x="182" y="168" width="56" height="10" fill="#E2F3EF"/>
+            <rect x="200" y="184" width="20" height="14" rx="3" fill="#FFFFFF" stroke="#00665C" stroke-width="2"/>
+            <line x1="205" y1="191" x2="215" y2="191" stroke="#A12622" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Left arm + hand -->
+            <rect x="166" y="146" width="16" height="50" rx="8" fill="#172B4D"/>
+            <circle cx="174" cy="198" r="6" fill="#F4F7FA" stroke="#172B4D" stroke-width="2"/>
+            <!-- Right arm + hand -->
+            <rect x="238" y="146" width="16" height="50" rx="8" fill="#172B4D"/>
+            <circle cx="246" cy="198" r="6" fill="#F4F7FA" stroke="#172B4D" stroke-width="2"/>
+            <!-- Head and hair -->
+            <circle cx="210" cy="108" r="24" fill="#F4F7FA" stroke="#172B4D" stroke-width="2.5"/>
+            <path d="M186 106C186 89 197 80 210 80C223 80 234 89 234 106C228 96 220 94 210 94C200 94 192 96 186 106Z" fill="#172B4D"/>
+            <!-- Friendly face -->
+            <circle cx="202" cy="109" r="2.3" fill="#172B4D"/>
+            <circle cx="218" cy="109" r="2.3" fill="#172B4D"/>
+            <path d="M203 118C207 122 213 122 217 118" stroke="#172B4D" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </g>
+
+          <!-- Student 3 (Right) -->
+          <g>
+            <!-- Backpack -->
+            <rect x="326" y="156" width="22" height="52" rx="10" fill="#00665C"/>
+            <!-- Legs -->
+            <rect x="300" y="218" width="14" height="64" rx="6" fill="#172B4D"/>
+            <rect x="320" y="218" width="14" height="64" rx="6" fill="#172B4D"/>
+            <!-- Left arm + hand -->
+            <rect x="277" y="156" width="15" height="46" rx="7.5" fill="#1464C1"/>
+            <circle cx="284.5" cy="204" r="5.5" fill="#FFFFFF" stroke="#172B4D" stroke-width="2"/>
+            <!-- Torso (Focus blue shirt) -->
+            <rect x="292" y="150" width="50" height="72" rx="14" fill="#1464C1"/>
+            <!-- Lanyard detail -->
+            <path d="M310 150L317 174L324 150" stroke="#FFFFFF" stroke-width="2.5" fill="none"/>
+            <rect x="312" y="173" width="10" height="13" rx="2" fill="#FFFFFF"/>
+            <!-- Right arm waving + hand -->
+            <rect x="342" y="130" width="15" height="36" rx="7.5" transform="rotate(20 342 130)" fill="#1464C1"/>
+            <circle cx="350" cy="127" r="5.5" fill="#FFFFFF" stroke="#172B4D" stroke-width="2"/>
+            <!-- Head and hair -->
+            <circle cx="317" cy="122" r="22" fill="#FFFFFF" stroke="#172B4D" stroke-width="2.5"/>
+            <path d="M295 122C295 103 305 94 317 94C329 94 339 103 339 122V132H333V116C327 111 307 111 301 116V132H295V122Z" fill="#40536A"/>
+            <!-- Friendly face -->
+            <circle cx="310" cy="123" r="2.2" fill="#172B4D"/>
+            <circle cx="324" cy="123" r="2.2" fill="#172B4D"/>
+            <path d="M311 131C314 135 320 135 323 131" stroke="#172B4D" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </g>
+        </svg>
+
+        <p class="illustration-caption">Connect with student clubs, events, and campus communities at UniSync.</p>
+      </div>
+
+      <!-- Right Half: Registration Form Card -->
+      <div class="form-card">
+        <h1 id="register-heading" class="form-title">Create Your Account</h1>
+        <p class="form-subtitle">Join Our University Community!</p>
+
+        <!-- novalidate lets our JavaScript handle all validation and error display -->
+        <form id="register-form" class="register-form" novalidate>
+
+          <!-- Field 1: NAME -->
+          <div class="form-group">
+            <label for="full-name" class="form-label">NAME</label>
+            <input
+              type="text"
+              id="full-name"
+              name="fullName"
+              class="form-input"
+              placeholder="e.g. Ayesha Khan"
+              autocomplete="name"
+              aria-describedby="name-error">
+            <p id="name-error" class="error-message" role="alert"></p>
+          </div>
+
+          <!-- Field 2: STUDENT ID -->
+          <div class="form-group">
+            <label for="student-id" class="form-label">STUDENT ID</label>
+            <input
+              type="text"
+              id="student-id"
+              name="studentId"
+              class="form-input"
+              placeholder="e.g. 26i-1234"
+              aria-describedby="student-id-error">
+            <p id="student-id-error" class="error-message" role="alert"></p>
+          </div>
+
+          <!-- Field 3: UNIVERSITY EMAIL -->
+          <div class="form-group">
+            <label for="university-email" class="form-label">UNIVERSITY EMAIL</label>
+            <input
+              type="email"
+              id="university-email"
+              name="universityEmail"
+              class="form-input"
+              placeholder="e.g. i261234@isb.nu.edu.pk"
+              autocomplete="email"
+              aria-describedby="email-error">
+            <p id="email-error" class="error-message" role="alert"></p>
+          </div>
+
+          <!-- Small helper note -->
+          <p class="demo-note">The demo login code is 2026.</p>
+
+          <!-- Success message box (hidden until account is created) -->
+          <div id="form-success" class="success-message" role="status" aria-live="polite" hidden></div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submit-btn" class="btn-primary">Create Account</button>
+        </form>
+
+        <!-- Bottom Login Link -->
+        <p class="form-footer-text">
+          Already have an account? <a href="login.html" class="inline-link">Login</a>
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Bottom Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <!-- Left Column: Brand + Tagline -->
+      <div class="footer-brand">
+        <h2 class="footer-logo">UniSync</h2>
+        <p class="footer-tagline">Find a student society</p>
+      </div>
+
+      <!-- Middle Column: EXPLORE -->
+      <div class="footer-column">
+        <h3 class="footer-heading">EXPLORE</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link">Home</a></li>
+          <li><a href="societies.html" class="footer-link">Societies</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Column: ACCOUNT -->
+      <div class="footer-column">
+        <h3 class="footer-heading">ACCOUNT</h3>
+        <ul class="footer-links">
+          <li><a href="login.html" class="footer-link">Login</a></li>
+          <li><a href="register.html" class="footer-link">Register</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Link to our JavaScript file (one folder up from pages/) -->
+  <script src="../js/3126register.js"></script>
+</body>
+</html>

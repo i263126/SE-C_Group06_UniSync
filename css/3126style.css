@@ -1,0 +1,375 @@
+/* =====================================================
+   UniSync Shared & Register Page Styles
+   Allowed colour palette only:
+   - Navy:        #172B4D
+   - Action teal: #00665C
+   - Pale teal:   #E2F3EF
+   - Canvas:      #F4F7FA
+   - White:       #FFFFFF
+   - Slate:       #40536A
+   - Error red:   #A12622
+   - Focus blue:  #1464C1
+   ===================================================== */
+
+/* Reset basic spacing and use border-box for easier sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base page styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4F7FA;
+  color: #40536A;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reusable centered page container */
+.container {
+  width: 90%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Visible focus outline for keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #1464C1;
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   Header & Navigation (Shared)
+   ===================================================== */
+.site-header {
+  background-color: #172B4D;
+  color: #FFFFFF;
+  padding: 14px 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Brand logo and name */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Desktop nav list */
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  background-color: #40536A;
+}
+
+/* Highlight the active page link */
+.nav-link.active {
+  background-color: #00665C;
+  color: #FFFFFF;
+}
+
+/* Hamburger button (hidden on desktop, shown on mobile) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background-color: #172B4D;
+  border: 2px solid #FFFFFF;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.hamburger-bar {
+  width: 22px;
+  height: 2.5px;
+  background-color: #FFFFFF;
+  display: block;
+}
+
+/* =====================================================
+   Main Register Section (Two Halves)
+   ===================================================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.register-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left half: Illustration */
+.illustration-box {
+  text-align: center;
+  padding: 16px;
+}
+
+.students-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.illustration-caption {
+  margin-top: 14px;
+  font-size: 1rem;
+  color: #40536A;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Right half: Form Card */
+.form-card {
+  background-color: #E2F3EF;
+  padding: 32px;
+  border-radius: 12px;
+  border: 2px solid #00665C;
+}
+
+.form-title {
+  color: #172B4D;
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  color: #40536A;
+  font-size: 0.98rem;
+  margin-bottom: 24px;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #172B4D;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  color: #172B4D;
+  background-color: #FFFFFF;
+  border: 2px solid #40536A;
+  border-radius: 8px;
+}
+
+/* Highlight input border in red when it has an error */
+.form-input.input-error {
+  border-color: #A12622;
+}
+
+.error-message {
+  color: #A12622;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 6px;
+  min-height: 1.2em;
+}
+
+.demo-note {
+  font-size: 0.9rem;
+  color: #40536A;
+  margin-bottom: 16px;
+}
+
+/* Success message shown after valid submission */
+.success-message {
+  background-color: #FFFFFF;
+  color: #00665C;
+  border: 2px solid #00665C;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Primary action button */
+.btn-primary {
+  width: 100%;
+  background-color: #00665C;
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #172B4D;
+}
+
+.btn-primary:disabled {
+  background-color: #40536A;
+  cursor: not-allowed;
+}
+
+.form-footer-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: #40536A;
+}
+
+/* Blue Login link */
+.inline-link {
+  color: #1464C1;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* =====================================================
+   Footer (Shared)
+   ===================================================== */
+.site-footer {
+  background-color: #172B4D;
+  color: #FFFFFF;
+  padding: 32px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 28px;
+}
+
+.footer-logo {
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.footer-tagline {
+  color: #E2F3EF;
+  font-size: 0.95rem;
+}
+
+.footer-heading {
+  font-size: 0.88rem;
+  letter-spacing: 0.8px;
+  color: #E2F3EF;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   Responsive Styles for Tablet & Mobile Phones
+   ===================================================== */
+@media (max-width: 768px) {
+  /* Show hamburger button on small screens */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Collapse nav menu by default on mobile */
+  .main-nav {
+    display: none;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  /* JS adds .open when user clicks hamburger button */
+  .main-nav.open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+  }
+
+  /* Stack illustration and form vertically */
+  .register-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  /* Stack footer columns cleanly on mobile */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
