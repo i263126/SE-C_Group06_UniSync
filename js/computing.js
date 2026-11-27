@@ -1,6 +1,18 @@
 (() => {
   "use strict";
 
+  const COMPUTING_EVENT = Object.freeze({
+    title: "Code Together",
+    dateTime: "Tue, 1 Dec · 4:00–5:00 pm",
+    location: "North Hall, Lab 2",
+    duration: "60 minutes",
+    note: "Bring a laptop if you have one."
+  });
+
+  window.UniSyncComputing = Object.freeze({
+    event: COMPUTING_EVENT
+  });
+
   const initMobileNav = () => {
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primary-navigation");
@@ -13,6 +25,8 @@
       nav.classList.toggle("is-open", isOpen);
       toggle.setAttribute("aria-expanded", String(isOpen));
     };
+
+    setMenuOpen(false);
 
     toggle.addEventListener("click", () => {
       const currentlyOpen = toggle.getAttribute("aria-expanded") === "true";
@@ -33,23 +47,33 @@
     });
   };
 
+  const renderNextMeetingDetails = (disclosure) => {
+    const fieldMap = {
+      title: COMPUTING_EVENT.title,
+      dateTime: COMPUTING_EVENT.dateTime,
+      location: COMPUTING_EVENT.location,
+      duration: COMPUTING_EVENT.duration,
+      note: COMPUTING_EVENT.note
+    };
+
+    Object.entries(fieldMap).forEach(([field, value]) => {
+      const target = disclosure.querySelector(`[data-event-field="${field}"]`);
+      if (target) {
+        target.textContent = value;
+      }
+    });
+  };
+
   const initMeetingDisclosure = () => {
     const disclosure = document.getElementById("next-meeting-disclosure");
     if (!disclosure) {
       return;
     }
 
-    const summary = disclosure.querySelector("summary");
-    if (!summary) {
-      return;
-    }
+    renderNextMeetingDetails(disclosure);
 
-    const syncExpandedState = () => {
-      summary.setAttribute("aria-expanded", String(disclosure.open));
-    };
-
-    syncExpandedState();
-    disclosure.addEventListener("toggle", syncExpandedState);
+    // Keep expanded on page load while letting the user collapse/expand it natively.
+    disclosure.open = true;
   };
 
   const initSectionTabsKeyboard = () => {
