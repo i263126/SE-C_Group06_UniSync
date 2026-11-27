@@ -19,11 +19,8 @@
         class="nav-toggle"
         aria-expanded="false"
         aria-controls="primary-navigation"
-        aria-label="Toggle navigation menu"
       >
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        Menu
       </button>
 
       <nav id="primary-navigation" class="site-nav" aria-label="Main navigation">
@@ -31,15 +28,15 @@
           <li><a class="nav-link" href="../index.html">Home</a></li>
           <li><a class="nav-link" href="../index.html#societies">Societies</a></li>
           <li><a class="nav-link" href="login.html">Login</a></li>
-          <li><a class="nav-link nav-link--cta" href="register.html">Register</a></li>
+          <li><a class="nav-link nav-link--register" href="register.html">Register</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="site-main">
-    <div class="container">
-      <section class="society-hero" aria-labelledby="society-title">
+    <section class="title-band" aria-labelledby="society-title">
+      <div class="container">
         <a class="back-link" href="../index.html#societies">← Back to societies</a>
         <h1 id="society-title" class="society-title">Computing Society</h1>
         <p class="society-description">Learn basic coding and work on small projects together.</p>
@@ -57,8 +54,10 @@
             </li>
           </ul>
         </nav>
-      </section>
+      </div>
+    </section>
 
+    <div class="container page-content">
       <section class="panel" aria-labelledby="what-we-do-heading">
         <div class="panel-header">
           <h2 id="what-we-do-heading" class="panel-title">What we do</h2>
@@ -115,7 +114,7 @@
           </details>
 
           <div class="panel-actions">
-            <a class="action-link" href="computing-events.html">See events</a>
+            <a class="btn btn-primary action-link" href="computing-events.html">See events</a>
           </div>
         </div>
       </section>
@@ -129,22 +128,20 @@
         <p class="footer-tagline">Find a student society.</p>
       </div>
 
-      <div class="footer-groups">
-        <div class="footer-group">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#societies">Societies</a></li>
-          </ul>
-        </div>
+      <div class="footer-group">
+        <h2 class="footer-heading">Explore</h2>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#societies">Societies</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-group">
-          <h2 class="footer-heading">Account</h2>
-          <ul class="footer-links">
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-          </ul>
-        </div>
+      <div class="footer-group">
+        <h2 class="footer-heading">Account</h2>
+        <ul class="footer-links">
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
       </div>
     </div>
   </footer>
