@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Campus Society | UniSync</title>
+
+  <!-- Bootstrap 5 CDN (no jQuery) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous"
+  >
+
+  <style>
+    /* Colour palette variables matching style.css (no extra colours added) */
+    :root {
+      --navy: #0f2942;
+      --action-teal: #0f766e;
+      --pale-teal: #e6f4f1;
+      --canvas: #f8fafc;
+      --white: #ffffff;
+      --slate: #475569;
+      --error-red: #b91c1c;
+      --focus-blue: #1d4ed8;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--canvas);
+      color: var(--navy);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Clear 3px focus-blue outline on all interactive elements */
+    a:focus-visible,
+    button:focus-visible,
+    [role="tab"]:focus-visible {
+      outline: 3px solid var(--focus-blue);
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+
+    /* Centered 900px layout container for desktop, responsive on phones */
+    .gc-container {
+      width: 100%;
+      max-width: 900px;
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+
+    /* Header and navigation */
+    .gc-header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--pale-teal);
+    }
+
+    .gc-brand {
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+
+    .gc-brand:hover {
+      color: var(--action-teal);
+    }
+
+    .gc-nav-link {
+      color: var(--navy);
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .gc-nav-link:hover {
+      background-color: var(--pale-teal);
+      color: var(--action-teal);
+    }
+
+    .gc-toggler {
+      border: 1px solid var(--slate);
+      color: var(--navy);
+    }
+
+    /* Main centered box */
+    .gc-main {
+      flex: 1;
+      padding-block: 28px 40px;
+    }
+
+    .gc-card-shell {
+      background-color: var(--white);
+      border: 1px solid var(--pale-teal);
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    /* Back link in focus blue */
+    .gc-back-link {
+      display: inline-block;
+      color: var(--focus-blue);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .gc-back-link:hover {
+      text-decoration: underline;
+    }
+
+    .gc-title {
+      color: var(--navy);
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .gc-description {
+      color: var(--slate);
+      font-size: 1.0625rem;
+      margin-bottom: 20px;
+    }
+
+    /* Storage blocked note */
+    .gc-storage-note {
+      background-color: var(--pale-teal);
+      border: 1px solid var(--error-red);
+      color: var(--error-red);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 0.9375rem;
+      margin-bottom: 16px;
+    }
+
+    /* Tab buttons: selected tab has pale background and blue border */
+    .gc-tablist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 1px solid var(--pale-teal);
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+
+    .gc-tab {
+      background-color: var(--white);
+      color: var(--navy);
+      border: 1px solid var(--slate);
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .gc-tab:hover {
+      background-color: var(--pale-teal);
+    }
+
+    .gc-tab[aria-selected="true"] {
+      background-color: var(--pale-teal);
+      border: 2px solid var(--focus-blue);
+      color: var(--navy);
+    }
+
+    /* About tab: society overview and highlights */
+    .gc-section-heading {
+      color: var(--navy);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .gc-about-lead {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+    }
+
+    .gc-body-copy {
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+
+    .gc-highlight-card {
+      height: 100%;
+      background-color: var(--canvas);
+      border: 1px solid var(--pale-teal);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .gc-highlight-title {
+      color: var(--action-teal);
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .gc-highlight-text {
+      color: var(--slate);
+      font-size: 0.92rem;
+      margin-bottom: 0;
+    }
+
+    /* About tab: Next meeting toggle */
+    .gc-meeting-box {
+      background-color: var(--canvas);
+      border: 1px solid var(--pale-teal);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .gc-meeting-heading {
+      margin: 0;
+      font-size: 1.125rem;
+    }
+
+    .gc-meeting-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+      border: 0;
+      padding: 4px 0;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .gc-meeting-sign {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--action-teal);
+      line-height: 1;
+    }
+
+    .gc-meeting-details {
+      margin: 10px 0 0;
+      color: var(--slate);
+      font-size: 1rem;
+    }
+
+    /* Primary and secondary action buttons */
+    .gc-btn-primary {
+      background-color: var(--action-teal);
+      color: var(--white);
+      border: 1px solid var(--action-teal);
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .gc-btn-primary:hover:not(:disabled) {
+      background-color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .gc-btn-primary:disabled {
+      background-color: var(--slate);
+      border-color: var(--slate);
+      color: var(--white);
+      cursor: not-allowed;
+      opacity: 0.85;
+    }
+
+    .gc-btn-cancel {
+      background-color: var(--white);
+      color: var(--error-red);
+      border: 1px solid var(--error-red);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .gc-btn-cancel:hover {
+      background-color: var(--canvas);
+    }
+
+    /* Events tab counter and cards */
+    .gc-counter {
+      display: inline-block;
+      background-color: var(--pale-teal);
+      color: var(--navy);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .gc-event-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--canvas);
+      border: 1px solid var(--pale-teal);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .gc-event-date {
+      color: var(--action-teal);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .gc-event-title {
+      color: var(--navy);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .gc-event-meta {
+      color: var(--slate);
+      font-size: 0.9375rem;
+      margin-bottom: 6px;
+    }
+
+    .gc-event-spots {
+      color: var(--navy);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .gc-event-spots--full {
+      color: var(--error-red);
+    }
+
+    .gc-signed-pill {
+      display: inline-block;
+      background-color: var(--pale-teal);
+      color: var(--action-teal);
+      border: 1px solid var(--action-teal);
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* Join tab */
+    .gc-join-text {
+      color: var(--slate);
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .gc-join-list {
+      color: var(--navy);
+      padding-left: 20px;
+      margin-bottom: 18px;
+    }
+
+    .gc-join-list li {
+      margin-bottom: 6px;
+    }
+
+    .gc-join-status {
+      margin-top: 14px;
+      margin-bottom: 0;
+      padding: 10px 14px;
+      background-color: var(--pale-teal);
+      color: var(--navy);
+      border-left: 4px solid var(--action-teal);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* One-line footer */
+    .gc-footer {
+      background-color: var(--white);
+      border-top: 1px solid var(--pale-teal);
+      padding-block: 16px;
+      color: var(--slate);
+      font-size: 0.9375rem;
+    }
+
+    .gc-footer a {
+      color: var(--action-teal);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .gc-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 576px) {
+      .gc-card-shell {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Site header with UniSync brand and responsive hamburger navigation -->
+  <header class="gc-header">
+    <nav class="navbar navbar-expand-md navbar-light gc-container" aria-label="Main navigation">
+      <a class="navbar-brand gc-brand" href="../index.html">UniSync</a>
+
+      <button
+        class="navbar-toggler gc-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto gap-md-2 mt-2 mt-md-0">
+          <li class="nav-item"><a class="nav-link gc-nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link gc-nav-link" href="societies.html">Societies</a></li>
+          <li class="nav-item"><a class="nav-link gc-nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link gc-nav-link" href="register.html">Register</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main centered content box (max 900px) -->
+  <main class="gc-main">
+    <div class="gc-container">
+      <div class="gc-card-shell">
+        <!-- Shown only if localStorage is blocked by the browser -->
+        <p id="storage-note" class="gc-storage-note" role="status" hidden>
+          Note: Browser storage is blocked, so your changes will not be saved after reload.
+        </p>
+
+        <!-- Society header populated from js/green-campus.js -->
+        <section aria-labelledby="society-name">
+          <a class="gc-back-link" href="societies.html">&lsaquo; Back to societies</a>
+          <h1 id="society-name" class="gc-title"></h1>
+          <p id="society-description" class="gc-description"></p>
+
+          <!-- Accessible ARIA tablist supporting click and Left/Right arrow keys -->
+          <div class="gc-tablist" role="tablist" aria-label="Green Campus Society sections">
+            <button
+              type="button"
+              id="tab-about"
+              class="gc-tab"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-about"
+              tabindex="0"
+            >
+              About
+            </button>
+            <button
+              type="button"
+              id="tab-events"
+              class="gc-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-events"
+              tabindex="-1"
+            >
+              Events
+            </button>
+            <button
+              type="button"
+              id="tab-join"
+              class="gc-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-join"
+              tabindex="-1"
+            >
+              Join
+            </button>
+          </div>
+        </section>
+
+        <!-- About Tab Panel -->
+        <section id="panel-about" role="tabpanel" aria-labelledby="tab-about">
+          <h2 id="about-heading" class="gc-section-heading"></h2>
+          <p id="about-lead" class="gc-about-lead"></p>
+          <p id="about-body" class="gc-body-copy"></p>
+          <div id="about-highlights" class="row g-3 mb-4"></div>
+
+          <div class="gc-meeting-box">
+            <h2 class="gc-meeting-heading">
+              <button
+                type="button"
+                id="meeting-toggle"
+                class="gc-meeting-toggle"
+                aria-expanded="true"
+                aria-controls="meeting-details"
+              >
+                <span>Next meeting</span>
+                <span id="meeting-sign" class="gc-meeting-sign" aria-hidden="true">&minus;</span>
+              </button>
+            </h2>
+            <p id="meeting-details" class="gc-meeting-details"></p>
+          </div>
+
+          <button type="button" id="see-events-btn" class="gc-btn-primary">
+            See events
+          </button>
+        </section>
+
+        <!-- Events Tab Panel -->
+        <section id="panel-events" role="tabpanel" aria-labelledby="tab-events" hidden>
+          <p id="signup-counter" class="gc-counter" aria-live="polite"></p>
+          <div id="events-list" class="row g-3"></div>
+        </section>
+
+        <!-- Join Tab Panel -->
+        <section id="panel-join" role="tabpanel" aria-labelledby="tab-join" hidden>
+          <p id="join-summary" class="gc-join-text"></p>
+          <ul id="join-benefits" class="gc-join-list"></ul>
+          <button type="button" id="join-btn" class="gc-btn-primary">Join</button>
+          <p id="join-status" class="gc-join-status" role="status" aria-live="polite" hidden></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- One-line footer -->
+  <footer class="gc-footer">
+    <div class="gc-container text-center">
+      <span>UniSync</span>
+      <span aria-hidden="true"> &bull; </span>
+      <a href="societies.html">Explore</a>
+      <span aria-hidden="true"> &bull; </span>
+      <a href="login.html">Account</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS CDN (includes Popper, no jQuery) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="../js/green-campus%20i263104.js"></script>
+</body>
+</html>
