@@ -1,0 +1,64 @@
+/* =====================================================
+   UniSync Login Page Styles
+   Reuses shared styles from css/3126style.css.
+   Uses only the allowed colour palette:
+   - Navy:        #172B4D
+   - Action teal: #00665C
+   - Pale teal:   #E2F3EF
+   - Canvas:      #F4F7FA
+   - White:       #FFFFFF
+   - Slate:       #40536A
+   - Error red:   #A12622
+   - Focus blue:  #1464C1
+   ===================================================== */
+
+/* Keep Register styled as the teal button in the header */
+.nav-register-btn {
+  background-color: #00665C;
+  color: #FFFFFF;
+}
+
+.nav-register-btn:hover {
+  background-color: #40536A;
+}
+
+/* Subtle indicator for the current Login link */
+.nav-current {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* Small line under the heading inside the form card */
+.form-subtitle {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #00665C;
+}
+
+/* Hide empty error space so the demo hint sits cleanly under the input */
+.login-form .error-message:empty {
+  min-height: 0;
+  margin-top: 0;
+}
+
+/* Small hint text under the Demo Code input */
+.demo-hint {
+  font-size: 0.88rem;
+  color: #40536A;
+  margin-top: 6px;
+}
+
+/* Already logged in message box */
+.logged-in-box {
+  background-color: #FFFFFF;
+  border: 2px solid #00665C;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.logged-in-text {
+  color: #172B4D;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  word-break: break-word;
+}

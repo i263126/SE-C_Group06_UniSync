@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - UniSync</title>
+  <!-- Reuse shared header, footer, layout, and form styles -->
+  <link rel="stylesheet" href="../css/3126style.css">
+  <!-- Login page specific styles -->
+  <link rel="stylesheet" href="../css/3126login.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar (Header) -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- Left: Logo SVG + UniSync Brand Name -->
+      <a href="../index.html" class="brand-link">
+        <!-- Simple inline SVG graduation hat logo (reused from Register page) -->
+        <svg class="brand-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#00665C"/>
+          <!-- Graduation cap top (mortarboard) -->
+          <path d="M16 7L5 13L16 19L27 13L16 7Z" fill="#FFFFFF"/>
+          <!-- Cap base -->
+          <path d="M10 16.5V21.5C10 23 12.7 24.5 16 24.5C19.3 24.5 22 23 22 21.5V16.5L16 19.8L10 16.5Z" fill="#FFFFFF"/>
+          <!-- Tassel on the right side -->
+          <path d="M24.5 14.5V20.5" stroke="#E2F3EF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24.5" cy="21.5" r="1.5" fill="#E2F3EF"/>
+        </svg>
+        <span class="brand-name">UniSync</span>
+      </a>
+
+      <!-- Hamburger button shown only on small mobile screens -->
+      <button
+        type="button"
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Right: Navigation Links in required order -->
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="societies.html" class="nav-link">Societies</a></li>
+          <li><a href="3126login.html" class="nav-link nav-current" aria-current="page">Login</a></li>
+          <li><a href="3126register.html" class="nav-link nav-register-btn">Register</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Main Content: Split into two halves (Illustration + Login Form) -->
+  <main class="main-content">
+    <section class="container register-layout" aria-labelledby="login-heading">
+
+      <!-- Left Half: Inline SVG illustration of a graduation hat on top of 2 books -->
+      <div class="illustration-box">
+        <svg
+          class="students-svg"
+          viewBox="0 0 420 340"
+          role="img"
+          aria-label="A graduation hat piled on top of two stacked university books"
+          xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Soft background circle and ground line -->
+          <circle cx="210" cy="170" r="145" fill="#E2F3EF"/>
+          <rect x="55" y="282" width="310" height="8" rx="4" fill="#172B4D"/>
+
+          <!-- Small decorative campus shapes -->
+          <rect x="65" y="80" width="36" height="36" rx="8" fill="#FFFFFF" stroke="#00665C" stroke-width="2"/>
+          <path d="M75 98H91M83 90V106" stroke="#00665C" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="345" cy="92" r="16" fill="#FFFFFF" stroke="#1464C1" stroke-width="2"/>
+          <path d="M339 92L343 96L352 87" stroke="#1464C1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Bottom Book (Action teal cover with white pages) -->
+          <g>
+            <rect x="88" y="234" width="244" height="48" rx="8" fill="#00665C" stroke="#172B4D" stroke-width="2.5"/>
+            <rect x="88" y="234" width="32" height="48" rx="6" fill="#172B4D"/>
+            <rect x="122" y="242" width="198" height="32" rx="4" fill="#FFFFFF"/>
+            <line x1="134" y1="253" x2="306" y2="253" stroke="#40536A" stroke-width="2" stroke-linecap="round"/>
+            <line x1="134" y1="263" x2="306" y2="263" stroke="#40536A" stroke-width="2" stroke-linecap="round"/>
+          </g>
+
+          <!-- Top Book (Focus blue cover stacked on the bottom book) -->
+          <g>
+            <rect x="114" y="186" width="192" height="48" rx="8" fill="#1464C1" stroke="#172B4D" stroke-width="2.5"/>
+            <rect x="114" y="186" width="28" height="48" rx="6" fill="#172B4D"/>
+            <rect x="144" y="194" width="150" height="32" rx="4" fill="#FFFFFF"/>
+            <line x1="154" y1="205" x2="282" y2="205" stroke="#40536A" stroke-width="2" stroke-linecap="round"/>
+            <line x1="154" y1="215" x2="282" y2="215" stroke="#40536A" stroke-width="2" stroke-linecap="round"/>
+            <!-- Small bookmark ribbon -->
+            <path d="M262 226H274V246L268 240L262 246V226Z" fill="#A12622"/>
+          </g>
+
+          <!-- Graduation Hat (Mortarboard) resting on top of the books -->
+          <g>
+            <!-- Cap base -->
+            <path d="M154 142V173C154 180 179 186 210 186C241 186 266 180 266 173V142L210 163L154 142Z" fill="#00665C" stroke="#172B4D" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Top diamond board -->
+            <polygon points="210,82 316,124 210,164 104,124" fill="#172B4D" stroke="#172B4D" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Subtle white highlight along the upper edges -->
+            <path d="M116 124L210 89L304 124" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <!-- Center button -->
+            <circle cx="210" cy="124" r="5.5" fill="#FFFFFF"/>
+            <!-- Tassel cord across the board and hanging down the right side -->
+            <path d="M210 124L290 134" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M290 134V166" stroke="#172B4D" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="290" cy="168" r="4.5" fill="#FFFFFF" stroke="#172B4D" stroke-width="2"/>
+            <path d="M290 172L283 185H297L290 172Z" fill="#00665C" stroke="#172B4D" stroke-width="1.5" stroke-linejoin="round"/>
+          </g>
+        </svg>
+
+        <p class="illustration-caption">Connect with student clubs, events, and campus communities at UniSync.</p>
+      </div>
+
+      <!-- Right Half: Login Form Card -->
+      <div class="form-card">
+        <h1 id="login-heading" class="form-title">Welcome Back!</h1>
+        <p id="login-subtitle" class="form-subtitle">Login to continue</p>
+
+        <!-- Shown when the user is already logged in -->
+        <div id="logged-in-view" class="logged-in-box" hidden>
+          <p id="logged-in-text" class="logged-in-text" role="status"></p>
+          <button type="button" id="logout-btn" class="btn-primary">Logout</button>
+        </div>
+
+        <!-- Login Form (hidden when user is already logged in) -->
+        <div id="login-form-wrapper">
+          <!-- novalidate lets our JavaScript handle all validation and error display -->
+          <form id="login-form" class="login-form" novalidate>
+
+            <!-- Field 1: UNIVERSITY EMAIL -->
+            <div class="form-group">
+              <label for="login-email" class="form-label">UNIVERSITY EMAIL</label>
+              <input
+                type="email"
+                id="login-email"
+                name="universityEmail"
+                class="form-input"
+                placeholder="e.g. i261234@isb.nu.edu.pk"
+                autocomplete="email"
+                aria-describedby="email-error">
+              <p id="email-error" class="error-message" role="alert"></p>
+            </div>
+
+            <!-- Field 2: DEMO CODE -->
+            <div class="form-group">
+              <label for="demo-code" class="form-label">DEMO CODE</label>
+              <input
+                type="text"
+                id="demo-code"
+                name="demoCode"
+                class="form-input"
+                placeholder="e.g. 2026"
+                inputmode="numeric"
+                aria-describedby="demo-code-error demo-code-hint">
+              <p id="demo-code-error" class="error-message" role="alert"></p>
+              <p id="demo-code-hint" class="demo-hint">Use 2026.</p>
+            </div>
+
+            <!-- Success message box (hidden until login succeeds) -->
+            <div id="login-success" class="success-message" role="status" aria-live="polite" hidden></div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="login-btn" class="btn-primary">Login</button>
+          </form>
+
+          <!-- Bottom Register Link -->
+          <p class="form-footer-text">
+            Don't have an account? <a href="3126register.html" class="inline-link">Register</a>
+          </p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Bottom Footer (Shared) -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <!-- Left Column: Brand + Tagline -->
+      <div class="footer-brand">
+        <h2 class="footer-logo">UniSync</h2>
+        <p class="footer-tagline">Find a student society</p>
+      </div>
+
+      <!-- Middle Column: EXPLORE -->
+      <div class="footer-column">
+        <h3 class="footer-heading">EXPLORE</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link">Home</a></li>
+          <li><a href="societies.html" class="footer-link">Societies</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Column: ACCOUNT -->
+      <div class="footer-column">
+        <h3 class="footer-heading">ACCOUNT</h3>
+        <ul class="footer-links">
+          <li><a href="3126login.html" class="footer-link">Login</a></li>
+          <li><a href="3126register.html" class="footer-link">Register</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Login page JavaScript -->
+  <script src="../js/3126login.js"></script>
+</body>
+</html>
