@@ -421,3 +421,44 @@ summary:focus-visible {
     padding: 20px 16px;
   }
 }
+
+/* Search and month filter controls for Debate Society Events page (i263131) */
+.event-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 18px;
+}
+
+.event-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.event-control-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #102a43;
+}
+
+.event-control-input,
+.event-control-select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #bcccdc;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #102a43;
+  font-family: inherit;
+  font-size: 0.9375rem;
+}
+
+.event-control-input:focus-visible,
+.event-control-select:focus-visible {
+  outline: 3px solid #214c72;
+  outline-offset: 2px;
+}
