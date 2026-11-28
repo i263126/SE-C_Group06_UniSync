@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join — Photography Society | UniSync</title>
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/photography.css">
+  <script src="../js/photography.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-logo" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UniSync</span>
+      </a>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span class="hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Menu</span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#societies">Societies</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-main">
+    <div class="society-header">
+      <h1>Join</h1>
+      <p class="society-tagline">Photography Society</p>
+    </div>
+
+    <nav class="society-tabs" aria-label="Photography Society pages">
+      <a class="tab-link" href="photography-about.html">About</a>
+      <a class="tab-link" href="photography-events.html">Events</a>
+      <a class="tab-link is-active" href="photography-join.html" aria-current="page">Join</a>
+    </nav>
+
+    <section aria-label="Join Photography Society">
+      <form id="join-form" class="join-form" novalidate>
+        <div class="form-field">
+          <label class="form-label" for="join-name">Name</label>
+          <input
+            type="text"
+            id="join-name"
+            name="name"
+            class="form-input"
+            autocomplete="name"
+            aria-describedby="join-name-error"
+            aria-invalid="false"
+          >
+          <p id="join-name-error" class="field-error" role="alert" hidden></p>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="join-activity">I'd like to</label>
+          <select
+            id="join-activity"
+            name="activity"
+            class="form-select"
+            aria-describedby="join-activity-error"
+            aria-invalid="false"
+          ></select>
+          <p id="join-activity-error" class="field-error" role="alert" hidden></p>
+        </div>
+
+        <p id="join-storage-error" class="field-error" role="alert" hidden></p>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary-fill">Save join request</button>
+        </div>
+      </form>
+
+      <div id="join-saved-card" class="saved-card" hidden>
+        <h2 id="join-saved-heading" class="saved-card-heading" tabindex="-1">Join request saved</h2>
+        <p id="join-saved-summary" class="saved-card-summary"></p>
+        <a class="btn-outline" href="photography-about.html">Back to society</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav aria-label="Footer navigation">
+        <a href="../index.html">UniSync</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="../index.html#societies">Explore</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="login.html">Account</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
