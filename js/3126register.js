@@ -206,9 +206,9 @@ document.addEventListener("DOMContentLoaded", function () {
     successBox.hidden = false;
     submitBtn.disabled = true;
 
-    // Wait 2 seconds, then go to login.html
+    // Wait 2 seconds, then go to 3126login.html
     setTimeout(function () {
-      window.location.href = "login.html";
+      window.location.href = "3126login.html";
     }, 2000);
   });
 });
