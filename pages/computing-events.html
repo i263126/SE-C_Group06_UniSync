@@ -34,7 +34,7 @@
     </div>
   </header>
 
-  <main id="main-content" class="site-main">
+  <main id="main-content" class="site-main" tabindex="-1">
     <section class="title-band" aria-labelledby="society-title">
       <div class="container">
         <a class="back-link" href="../index.html#societies">← Back to societies</a>
@@ -65,24 +65,24 @@
 
         <div class="panel-body">
           <div class="card-grid">
-            <article class="item-card" aria-labelledby="event-code-together">
-              <p class="lead-copy">
+            <article class="item-card event-card" data-computing-event aria-labelledby="event-code-together">
+              <div class="event-card-header">
+                <h3 id="event-code-together" class="event-card-title" data-event-field="title">Code Together</h3>
                 <span class="badge">Next session</span>
-              </p>
-              <h3 id="event-code-together" class="lead-copy" data-event-field="title">Code Together</h3>
+              </div>
 
-              <dl class="meeting-details">
+              <dl class="meeting-details event-details">
                 <div class="meeting-row">
                   <dt>Date &amp; time</dt>
                   <dd data-event-field="dateTime">Tue, 1 Dec · 4:00–5:00 pm</dd>
                 </div>
                 <div class="meeting-row">
                   <dt>Location</dt>
-                  <dd data-event-field="location">North Hall, Lab 2</dd>
+                  <dd data-event-field="location">IT Lab 2</dd>
                 </div>
                 <div class="meeting-row">
                   <dt>Duration</dt>
-                  <dd data-event-field="duration">60 minutes</dd>
+                  <dd><span class="duration-highlight" data-event-field="duration">60 minutes</span></dd>
                 </div>
                 <div class="meeting-row">
                   <dt>Note</dt>
@@ -90,10 +90,10 @@
                 </div>
               </dl>
             </article>
+          </div>
 
-            <div class="panel-actions">
-              <a class="btn btn-primary action-link" href="computing-join.html">Join this society</a>
-            </div>
+          <div class="panel-actions event-panel-actions">
+            <a class="btn btn-primary btn-prominent action-link" href="computing-join.html">Join this society</a>
           </div>
         </div>
       </section>

@@ -4,7 +4,7 @@
   const COMPUTING_EVENT = Object.freeze({
     title: "Code Together",
     dateTime: "Tue, 1 Dec · 4:00–5:00 pm",
-    location: "North Hall, Lab 2",
+    location: "IT Lab 2",
     duration: "60 minutes",
     note: "Bring a laptop if you have one."
   });
@@ -47,7 +47,7 @@
     });
   };
 
-  const renderNextMeetingDetails = (disclosure) => {
+  const renderEventDetails = (container) => {
     const fieldMap = {
       title: COMPUTING_EVENT.title,
       dateTime: COMPUTING_EVENT.dateTime,
@@ -57,7 +57,7 @@
     };
 
     Object.entries(fieldMap).forEach(([field, value]) => {
-      const target = disclosure.querySelector(`[data-event-field="${field}"]`);
+      const target = container.querySelector(`[data-event-field="${field}"]`);
       if (target) {
         target.textContent = value;
       }
@@ -70,10 +70,17 @@
       return;
     }
 
-    renderNextMeetingDetails(disclosure);
+    renderEventDetails(disclosure);
 
     // Keep expanded on page load while letting the user collapse/expand it natively.
     disclosure.open = true;
+  };
+
+  const initEventCards = () => {
+    const eventCards = document.querySelectorAll("[data-computing-event]");
+    eventCards.forEach((card) => {
+      renderEventDetails(card);
+    });
   };
 
   const initSectionTabsKeyboard = () => {
@@ -99,6 +106,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initMobileNav();
     initMeetingDisclosure();
+    initEventCards();
     initSectionTabsKeyboard();
   });
 })();
