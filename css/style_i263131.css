@@ -310,3 +310,114 @@ summary:focus-visible {
     padding-inline: 12px;
   }
 }
+
+/* Styles for Debate Society Events page (i263131) */
+
+[tabindex]:focus-visible {
+  outline: 3px solid #214c72;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 20px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.event-title {
+  margin: 0;
+  max-width: 100%;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #102a43;
+  overflow-wrap: break-word;
+}
+
+.event-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  max-width: 100%;
+  font-size: 0.9375rem;
+  color: #486581;
+  overflow-wrap: break-word;
+}
+
+.event-note {
+  margin: 0;
+  max-width: 100%;
+  font-size: 0.9375rem;
+  color: #102a43;
+  overflow-wrap: break-word;
+}
+
+.event-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid #c5d9ec;
+  border-radius: 6px;
+  background-color: #eef5fb;
+  color: #214c72;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.event-status.is-full {
+  border-color: #bcccdc;
+  background-color: #f0f4f8;
+  color: #102a43;
+}
+
+.event-empty {
+  margin: 0;
+  max-width: 100%;
+  padding: 28px 20px;
+  border: 1px dashed #bcccdc;
+  border-radius: 8px;
+  background-color: #f7fafd;
+  color: #486581;
+  font-size: 0.9375rem;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.event-list a,
+.event-list button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 650px) {
+  .event-list {
+    gap: 12px;
+  }
+
+  .event-card {
+    padding: 16px;
+  }
+
+  .event-empty {
+    padding: 20px 16px;
+  }
+}
