@@ -176,6 +176,10 @@ textarea:focus-visible,
   flex: 1;
 }
 
+.site-main:focus {
+  outline: none;
+}
+
 /* Light blue title band */
 .title-band {
   background-color: var(--pale-blue);
@@ -393,6 +397,7 @@ textarea:focus-visible,
 .meeting-details {
   margin: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
 }
 
@@ -401,6 +406,7 @@ textarea:focus-visible,
   grid-template-columns: 124px 1fr;
   gap: 12px;
   align-items: baseline;
+  min-width: 0;
 }
 
 .meeting-row dt {
@@ -411,8 +417,10 @@ textarea:focus-visible,
 
 .meeting-row dd {
   margin: 0;
+  min-width: 0;
   font-size: 0.9375rem;
   color: var(--text);
+  overflow-wrap: break-word;
 }
 
 /* Buttons & shared controls (also used across Events and Join) */
@@ -471,14 +479,17 @@ textarea:focus-visible,
 /* Shared list/card & form primitives for Events and Join pages */
 .card-grid {
   display: grid;
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
 }
 
 .item-card {
-  padding: 16px;
+  min-width: 0;
+  padding: 20px 24px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background-color: var(--surface);
+  box-shadow: 0 1px 3px rgba(16, 42, 67, 0.05);
 }
 
 .badge {
@@ -491,6 +502,57 @@ textarea:focus-visible,
   color: var(--primary);
   font-size: 0.8125rem;
   font-weight: 600;
+}
+
+.event-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.event-card-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.5vw, 1.4375rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  overflow-wrap: break-word;
+}
+
+.event-details {
+  gap: 12px;
+}
+
+.duration-highlight {
+  display: inline-block;
+  max-width: 100%;
+  padding: 3px 10px;
+  border: 1px solid var(--pale-blue-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--pale-blue);
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.event-panel-actions {
+  margin-top: 20px;
+}
+
+.btn-prominent {
+  padding: 11px 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(33, 76, 114, 0.2);
 }
 
 .form-grid {
@@ -594,14 +656,22 @@ textarea:focus-visible,
   }
 
   .meeting-row {
-    grid-template-columns: 1fr;
-    gap: 2px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
   }
 }
 
 @media (max-width: 640px) {
   .container {
     padding-inline: 16px;
+  }
+
+  .item-card {
+    padding: 16px;
+  }
+
+  .event-panel-actions .btn-prominent {
+    width: 100%;
   }
 
   .header-inner {
