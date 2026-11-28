@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Photography Society | UniSync</title>
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/photography.css">
+  <style>
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .events-list .content-card {
+      margin-bottom: 0;
+    }
+
+    .event-title {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--photo-navy);
+    }
+
+    .event-meta {
+      margin: 0 0 4px;
+      color: var(--photo-text);
+    }
+
+    .event-duration {
+      margin: 6px 0 8px;
+      font-weight: 700;
+      color: var(--photo-blue);
+    }
+
+    .event-note {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--photo-muted);
+    }
+
+    .events-empty {
+      margin: 0;
+      color: var(--photo-muted);
+      font-weight: 600;
+    }
+
+    .join-action-area {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .join-already-note {
+      margin: 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--photo-navy);
+    }
+
+    .join-already-note[hidden] {
+      display: none;
+    }
+
+    .btn-primary-outline {
+      display: inline-block;
+      padding: 7px 14px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--photo-blue-dark);
+      background-color: var(--photo-blue-light);
+      border: 1px solid var(--photo-blue);
+      border-radius: var(--photo-radius);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary-outline:hover {
+      background-color: #dbeafe;
+    }
+  </style>
+  <script src="../js/photography.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-logo" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UniSync</span>
+      </a>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span class="hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Menu</span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#societies">Societies</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-main">
+    <div class="society-header">
+      <h1>Events</h1>
+      <p class="society-tagline">Photography Society</p>
+    </div>
+
+    <nav class="society-tabs" aria-label="Photography Society pages">
+      <a class="tab-link" href="photography-about.html">About</a>
+      <a class="tab-link is-active" href="photography-events.html" aria-current="page">Events</a>
+      <a class="tab-link" href="photography-join.html">Join</a>
+    </nav>
+
+    <section id="events-section" aria-label="Upcoming events">
+      <div id="events-list" class="events-list"></div>
+    </section>
+
+    <div class="join-action-area">
+      <p id="events-join-note" class="join-already-note" role="status" hidden></p>
+      <a id="events-join-btn" class="btn-primary-outline" href="photography-join.html">Join this society</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav aria-label="Footer navigation">
+        <a href="../index.html">UniSync</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="../index.html#societies">Explore</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="login.html">Account</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
